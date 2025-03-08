@@ -1,7 +1,7 @@
 describe('Form Submission Test', () => {
-  
+
   it('fills and submits the form', () => {
-    cy.visit('http://localhost:8080/form.html'); // Update this if needed
+    cy.visit('/form.html'); // Update this if needed
 
     // Fill in the form fields
     cy.get('#name').type('John Doe');
