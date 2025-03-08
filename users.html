@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>🐱 Cat Facts Collection 🐱</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f0f8ff; text-align: center; }
+        /* Page Content */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Adjust for fixed navbar */
+        }
+
+        h1 { color: #333; }
+
+        /* Facts Grid */
+        .facts-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .fact-card {
+            background: #ffebcd;
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Form</a></li>
+            <li><a href="users.html">Users</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>🐾 Cat Facts Collection 🐾</h1>
+        <div id="facts-container" class="facts-grid"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const factsContainer = document.getElementById("facts-container");
+
+            const fetchCatFacts = async () => {
+                try {
+                    const response = await fetch("https://catfact.ninja/facts?limit=10");
+                    const data = await response.json();
+
+                    factsContainer.innerHTML = ""; // Clear previous facts
+                    data.data.forEach(fact => {
+                        const factCard = document.createElement("div");
+                        factCard.className = "fact-card";
+                        factCard.innerHTML = `<p>${fact.fact}</p>`;
+                        factsContainer.appendChild(factCard);
+                    });
+                } catch (error) {
+                    console.error("Error fetching cat facts:", error);
+                    factsContainer.innerHTML = "<p>Failed to load cat facts. Try again!</p>";
+                }
+            };
+
+            fetchCatFacts(); // Automatically fetch facts on page load
+        });
+    </script>
+</body>
+</html>
