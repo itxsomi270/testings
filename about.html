@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - My Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        .navbar { 
+            background-color: #2c3e50; 
+            padding: 1rem; 
+            position: fixed; 
+            width: 100%; 
+            top: 0;
+        }
+        .navbar ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 2rem; 
+        }
+        .navbar a { 
+            color: white; 
+            text-decoration: none; 
+        }
+        .navbar a:hover { 
+            color: #3498db; 
+        }
+        .content { 
+            margin-top: 60px; 
+            padding: 2rem; 
+        }
+        h1 { color: #2c3e50; margin-bottom: 1rem; }
+        .team { 
+            margin-top: 2rem; 
+            display: flex; 
+            gap: 1rem; 
+            flex-wrap: wrap;
+        }
+        .member { 
+            background: #ecf0f1; 
+            padding: 1rem; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Form</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>About Us</h1>
+        <p>We are a small team working on cool projects.</p>
+        <div class="team" id="team-container"></div>
+    </div>
+
+    <script>
+        const teamMembers = [
+            { name: "John", role: "Developer" },
+            { name: "Jane", role: "Designer" },
+            { name: "Mike", role: "Manager" }
+        ];
+
+        const container = document.getElementById('team-container');
+        teamMembers.forEach(member => {
+            const div = document.createElement('div');
+            div.className = 'member';
+            div.innerHTML = `<strong>${member.name}</strong><br>${member.role}`;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>

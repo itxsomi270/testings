@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        .navbar { 
+            background-color: #2c3e50; 
+            padding: 1rem; 
+            position: fixed; 
+            width: 100%; 
+            top: 0;
+        }
+        .navbar ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 2rem; 
+        }
+        .navbar a { 
+            color: white; 
+            text-decoration: none; 
+        }
+        .navbar a:hover { 
+            color: #3498db; 
+        }
+        .content { 
+            margin-top: 60px; 
+            padding: 2rem; 
+            text-align: center;
+        }
+        h1 { color: #2c3e50; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="form.html">Form</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>Welcome Home</h1>
+        <p id="welcome-text">This is the home page.</p>
+        <button onclick="changeText()">Change Message</button>
+    </div>
+
+    <script>
+        function changeText() {
+            const text = document.getElementById('welcome-text');
+            text.textContent = 'Hello! You clicked the button!';
+            text.style.color = '#3498db';
+        }
+    </script>
+</body>
+</html>
